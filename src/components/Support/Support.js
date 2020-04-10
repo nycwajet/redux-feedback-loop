@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 
 class Support extends Component{
     render(){
@@ -12,4 +12,5 @@ class Support extends Component{
     }
 }
 
-export default connect() (Support);
+// export default connect() (Support);
+export default Support;
