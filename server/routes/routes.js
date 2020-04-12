@@ -20,12 +20,12 @@ router.post( '/', (req, res) => {
     const feedback = req.body;
     console.log( `in router.post...`, feedback );
 
-    let sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+    let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
     VALUES ($1, $2, $3, $4);`;
     
-    pool.query( sqlText, [ Number(feedback.feeling), Number(feedback.understanding), Number(feedback.support), feedback.comments ] )
+    pool.query( queryText, [ Number(feedback.feeling), Number(feedback.understanding), Number(feedback.support), feedback.comments ] )
         .then( (response) =>{
-            console.log( `POST successful!` );
+            console.log( 'Post good', response);
             res.sendStatus(201);
         })
         .catch( (error) => {
