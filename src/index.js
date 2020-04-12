@@ -12,6 +12,7 @@ const feedback = {
     feeling: '',
     understanding:'',
     support:'',
+    comments:'',
 };
 
 const feedbackReducer = (state  = feedback, action)=>{
@@ -38,6 +39,9 @@ const feedbackReducer = (state  = feedback, action)=>{
             ...state,
             comments: action.payload
         };
+}
+else if(action.type === 'EMPTY'){
+    return state= feedback;
 }
     return state;
 }
