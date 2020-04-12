@@ -18,7 +18,7 @@ class Support extends Component{
 
     handleSubmit=()=>{
         console.log('In handleSubmit');
-        if (this.state.understanding !== ''){
+        if (this.state.support !== ''){
         const action= {type: 'ADD_SUPPORT', payload: this.state.support} ;
         this.props.dispatch(action);
         this.props.history.push('/comments');

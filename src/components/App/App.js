@@ -68,7 +68,7 @@ class App extends Component {
           <Route path = "/understanding" component={Understanding} />
           <Route path = "/support" component={Support} />
           <Route path = "/comments" component={Comments} />
-          <Route path="/review" render={(props) => <Feedback {...props} submitFeedback={this.submitFeedback} />} />
+          <Route path="/feedback" render={(props) => <Feedback {...props} submitFeedback={this.submitFeedback} />} />
         </secton>
       </div>
       </Router>
