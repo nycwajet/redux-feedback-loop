@@ -17,7 +17,7 @@ class Feedback extends Component{
     handleSubmit = () => {
         const feedback = this.props.reduxState.feedbackReducer;
         this.props.submitFeedback( feedback );
-        this.props.history.push( '/success' );
+        this.props.history.push( '/complete' );
     }
 
 
