@@ -10,8 +10,11 @@ class Feedback extends Component{
                <h2>This Is Your Feedback</h2>
                <p>Feeling: {this.props.reduxState.FeedbackReducer.feeling} </p>
            </section>
-        )
+        );
     }
 }
+const reduxStateProps = (reduxState)=>{
+    reduxState
+}
 
-export default connect()(withRouter(Feedback));
+export default connect(reduxStateProps)(withRouter(Feedback));
