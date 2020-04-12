@@ -8,7 +8,8 @@ class Feedback extends Component{
         return(
            <section>
                <h2>This Is Your Feedback</h2>
-               <p>Feeling: {this.props.reduxState.FeedbackReducer.feeling} </p>
+               <p>Feeling: {this.props.reduxState.feedbackReducer.feeling} </p>
+               <p>Feeling: {this.props.reduxState.feedbackReducer.understanding} </p>
            </section>
         );
     }

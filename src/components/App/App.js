@@ -8,10 +8,55 @@ import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
+import Feedback from '../FeedBack/Feedback';
 
 class App extends Component {
+
+  submitFeedback = (feedback) => {
+    console.log( `in submitFeedback...`, feedback );
+
+    axios({
+      method: 'POST',
+      url: '/feedback',
+      data: feedback
+    })
+    .then( (response) => {
+      console.log( `Added feedback.` );
+      const action = { type: 'EMPTY_STATE' };
+      this.props.dispatch( action );
+
+    })
+    .catch( (error) => {
+      console.log( `Error adding feedback.`, error );
+      alert( `Could not submit feedback. Try again later.`);
+    })
+  } 
+
+  getFeedback = () => {
+    console.log( `in getFeedback...` );
+    
+    axios({
+      method: 'GET',
+      url: '/feedback'
+    })
+    .then( (response) => {
+      console.log( `Got feedback data from server!` );
+      const action = { type: 'GET_FEEDBACK', payload: response.data };
+      this.props.dispatch( action );
+    })
+    .catch( (error) => {
+      console.log( `Error getting feedback.`, error );
+      alert( `Sorry, couldn't get feedback data. Try again later.` );
+    })
+  }
+
+  componentDidMount() {
+    this.getFeedback();
+  }
+
   render() {
     return (
+      <Router>
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
@@ -23,8 +68,10 @@ class App extends Component {
           <Route path = "/understanding" component={Understanding} />
           <Route path = "/support" component={Support} />
           <Route path = "/comments" component={Comments} />
+          <Route path="/review" render={(props) => <Feedback {...props} submitFeedback={this.submitFeedback} />} />
         </secton>
       </div>
+      </Router>
     );
   }
 }

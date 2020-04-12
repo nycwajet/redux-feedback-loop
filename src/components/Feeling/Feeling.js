@@ -11,7 +11,8 @@ class Feeling extends Component{
     handleChange=(event)=>{
         console.log('In handleChange', this.state);
         this.setState({
-            ...this.state, feeling: event.target.value,
+            ...this.state, 
+            feeling: event.target.value,
         })
     }
 
@@ -20,9 +21,9 @@ class Feeling extends Component{
         if (this.state.feeling !== ''){
         const action= {type: 'ADD_FEELING', payload: this.state.feeling} ;
         this.props.dispatch(action);
-        this.props.history.push('understanding');
+        this.props.history.push('/understanding');
     } else {
-        alert('PLease Select an option');
+        alert('Please Select an option');
     }
     }
 
