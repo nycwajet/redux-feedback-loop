@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
 class Complete extends Component{
     handleClick=()=>{
@@ -13,3 +14,5 @@ class Complete extends Component{
         )
     }
 }
+
+export default connect()(Complete);

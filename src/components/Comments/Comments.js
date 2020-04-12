@@ -21,7 +21,7 @@ class Comments extends Component {
         console.log( `in handleSubmit...` );
         const action = { type: 'ADD_COMMENTS', payload: this.state.comments };
         this.props.dispatch( action );
-        this.props.history.push( '/feedback' );
+        this.props.history.push( '/review' );
     }
 
     render() {

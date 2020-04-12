@@ -45,10 +45,17 @@ else if(action.type === 'EMPTY'){
 }
     return state;
 }
+const storeFeedback = ( state = [], action ) => {
+    if( action.type === 'GET_FEEDBACK' ){
+        return state = action.payload;
+    }
+    return state;
+}
 
 const storeInstance = createStore(
     combineReducers({
         feedbackReducer,
+        storeFeedback
     }),
     applyMiddleware(logger),
 );

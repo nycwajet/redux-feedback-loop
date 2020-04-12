@@ -9,6 +9,7 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Feedback from '../FeedBack/Feedback';
+import Complete from '../Complete/Complete';
 
 class App extends Component {
 
@@ -22,7 +23,7 @@ class App extends Component {
     })
     .then( (response) => {
       console.log( `Added feedback.` );
-      const action = { type: 'EMPTY_STATE' };
+      const action = { type: 'EMPTY' };
       this.props.dispatch( action );
 
     })
@@ -63,13 +64,14 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
         </header>
         <br/>
-        <secton>
+        <section>
           <Route exact path = "/" component={Feeling} />
           <Route path = "/understanding" component={Understanding} />
           <Route path = "/support" component={Support} />
           <Route path = "/comments" component={Comments} />
-          <Route path="/feedback" render={(props) => <Feedback {...props} submitFeedback={this.submitFeedback} />} />
-        </secton>
+          <Route path = "/review" render={(props) => <Feedback {...props} submitFeedback={this.submitFeedback} />} />
+          <Route path = "/complete" component={Complete} />
+        </section>
       </div>
       </Router>
     );
