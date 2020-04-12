@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import Feeling from '../Feeling/Feeling';
+
 
 class Feedback extends Component{
     render(){
@@ -13,8 +13,8 @@ class Feedback extends Component{
         );
     }
 }
-const reduxStateProps = (reduxState)=>{
-    reduxState
-}
+const reduxStateProps = (reduxState)=>({
+    reduxState,
+});
 
 export default connect(reduxStateProps)(withRouter(Feedback));
